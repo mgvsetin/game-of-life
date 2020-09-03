@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/mgvsetin/game-of-life#readme",
   "devDependencies": {
-    "electron": "^10.1.0"
+    "electron": "^10.1.1"
   }
 }
