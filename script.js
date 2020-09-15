@@ -3,8 +3,8 @@ const ctx = canvas.getContext('2d');
 
 // Rozměry herní plochy
 const rozliseni = 10;
-canvas.width = 400;
-canvas.height = 400;
+canvas.width = 600;
+canvas.height = 600;
 const SLOUPCE = canvas.width / rozliseni;
 const RADKY = canvas.height / rozliseni;
 
