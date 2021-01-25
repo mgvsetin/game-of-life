@@ -1,0 +1,9 @@
+1. Slider pro kontrolu rychlosti animace (změna fps) - SPLNĚNO
+
+2. Slider pro přiblížení/oddálení herní plochy (změna rozlišení) - X
+
+3. Vypisování fps, kontrola při běhu - alert, console log
+
+4. Možnosti
+
+5. Více módů - přepínání

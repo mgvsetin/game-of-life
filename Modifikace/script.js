@@ -12,7 +12,7 @@ const RADKY = canvas.height / rozliseni;
 function vytvoritMrizku() {
   return new Array(SLOUPCE).fill(null)
     .map(() => new Array(RADKY).fill(null)
-      .map(() => Math.floor(Math.random() * 2)));
+      .map(() => Math.floor(Math.random() * 3)));
 }
 
 // Vytvoření herní mřížky
@@ -34,7 +34,13 @@ function vykreslitMrizku(mrizka) {
 
       ctx.beginPath();
       ctx.rect(sloupec * rozliseni, radek*rozliseni, rozliseni, rozliseni);
-      ctx.fillStyle = bunka ? 'black' : 'white';
+      if (bunka == 0) {
+        ctx.fillStyle = 'white';
+      } else if (bunka == 1) {
+        ctx.fillStyle = 'black';
+      } else {
+        ctx.fillStyle = 'red';
+      }
       ctx.fill();
       // ctx.stroke();
     }
@@ -66,13 +72,13 @@ function kontrolaStavuHerniPlochy(mrizka) {
 
       // Pravidla hry
 
-      if (bunka === 1 && pocetSousednichBunek < 2) {
+      if (bunka === (1 || 2) && pocetSousednichBunek < 2) {
         // 1. Každá živá buňka s méně než dvěma živými sousedy zemře
         kopieMrizky[sloupec][radek] = 0;
-      } else if (bunka === 1 && pocetSousednichBunek === 2 || pocetSousednichBunek === 3) {
+      } else if (bunka === (1 || 2) && pocetSousednichBunek === 2 || pocetSousednichBunek === 3) {
         // 2. Každá živá buňka se dvěma nebo třemi živými sousedy zůstává žít
         kopieMrizky[sloupec][radek] = 1;
-      } else if (bunka === 1 && pocetSousednichBunek > 3) {
+      } else if (bunka === (1 || 2) && pocetSousednichBunek > 3) {
         // 3. Každá živá buňka s více než třemi živými sousedy zemře
         kopieMrizky[sloupec][radek] = 0;
       } else if (bunka === 0 && pocetSousednichBunek === 3) {

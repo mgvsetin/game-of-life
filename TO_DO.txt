@@ -1,0 +1,9 @@
+Slider pro přiblížení/oddálení herní plochy (změna rozlišení)
+
+Modifikace - ovládací panel (nefunkční během běhu simulace)
+
+Vymírání - několik stádií (délka vymírání proměnlivě)
+
+Mrtvé pole na začátku simulace - možnost naklikání buněk
+
+Algoritmus pro procenta zaplnění herní plochy - statisticky - změna hustoty osídlení
