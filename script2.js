@@ -1,16 +1,16 @@
-// ZÁKLADNÍ SIMULACE
+// MODIFIKACE --- VYMÍRÁNÍ (2 FÁZÍ)
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
 // Rozměry herní plochy
-const rozliseni = 8;
+const rozliseni = 5;
 canvas.width = 800;
 canvas.height = 400;
 const SLOUPCE = canvas.width / rozliseni;
 const RADKY = canvas.height / rozliseni;
 
-// Vytvoření 2d pole a naplnění hodnotami 0 a 1
+// Vytvoření 2d pole a naplnění hodnotami 0, 1 a 2
 function vytvoritMrizku() {
   return new Array(SLOUPCE).fill(null)
     .map(() => new Array(RADKY).fill(null)
@@ -36,7 +36,15 @@ function vykreslitMrizku(mrizka) {
 
       ctx.beginPath();
       ctx.rect(sloupec * rozliseni, radek*rozliseni, rozliseni, rozliseni);
-      ctx.fillStyle = bunka ? 'black' : 'white';
+      
+      if (bunka === 0) {
+          ctx.fillStyle = 'white';
+      } else if (bunka === 1) {
+        ctx.fillStyle = 'black';
+      } else {
+          ctx.fillStyle = 'grey';
+      }
+
       ctx.fill();
       // ctx.stroke();
     }
@@ -70,16 +78,19 @@ function kontrolaStavuHerniPlochy(mrizka) {
 
       if (bunka === 1 && pocetSousednichBunek < 2) {
         // 1. Každá živá buňka s méně než dvěma živými sousedy zemře
-        kopieMrizky[sloupec][radek] = 0;
+        kopieMrizky[sloupec][radek] = 3;
       } else if (bunka === 1 && pocetSousednichBunek === 2 || pocetSousednichBunek === 3) {
         // 2. Každá živá buňka se dvěma nebo třemi živými sousedy zůstává žít
         kopieMrizky[sloupec][radek] = 1;
       } else if (bunka === 1 && pocetSousednichBunek > 3) {
         // 3. Každá živá buňka s více než třemi živými sousedy zemře
-        kopieMrizky[sloupec][radek] = 0;
+        kopieMrizky[sloupec][radek] = 3;
       } else if (bunka === 0 && pocetSousednichBunek === 3) {
         // 4. Každá mrtvá buňka s právě třemi živými sousedy oživne
         kopieMrizky[sloupec][radek] = 1;
+      } else if (bunka === 3) {
+        // 5. Buňka v rozkladu v následující generaci zemře
+        kopieMrizky[sloupec][radek] = 0;
       }
     }
   }

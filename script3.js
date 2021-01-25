@@ -1,11 +1,11 @@
-// ZÁKLADNÍ SIMULACE
+// MODIFIKACE --- VYMÍRÁNÍ (5 FÁZÍ)
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
 // Rozměry herní plochy
-const rozliseni = 8;
-canvas.width = 800;
+const rozliseni = 5;
+canvas.width = 400;
 canvas.height = 400;
 const SLOUPCE = canvas.width / rozliseni;
 const RADKY = canvas.height / rozliseni;

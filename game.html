@@ -10,14 +10,21 @@
   <body>
     <h1>Game of Life</h1>
 
-    <div class="button"><a href="game.html">Základní simulace</a></div>
+    <canvas></canvas>
 
-    <h2>Modifikace</h2>
+    <p>FPS (1-60):</p>
+    
+    <div class="slidecontainer">
+      <input type="range" min="1" max="60" value="1" class="slider" id="myRange">
+    </div>
 
-    <div class="button"><a href="game2.html">Vymírání (2 fáze)</a></div>
-    <!-- <div class="button"><a href="game3.html">Vymírání (5 fází)</a></div> -->
+    <input type="button" value="Start" onclick="start()">
+    <input type="button" value="Stop" onclick="stop()">
+    <input type="button" value="Resetovat simulaci" onclick="reset()">
 
     <!-- <p>Tato aplikace byla napsána v JavaSciptu s použitím frameworku Electron <script>document.write(process.versions.electron)</script>.</p> -->
     <p>&copy 2020</p>
+
+    <script src="script.js"></script>
   </body>
 </html>
