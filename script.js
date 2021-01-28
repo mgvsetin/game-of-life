@@ -12,7 +12,7 @@ const RADKY = canvas.height / rozliseni;
 
 // Vytvoření 2d pole a naplnění hodnotami 0 a 1
 function vytvoritMrizku() {
-  return new Array(SLOUPCE).fill(null)
+    return new Array(SLOUPCE).fill(null)
     .map(() => new Array(RADKY).fill(null)
       .map(() => Math.floor(Math.random() * 2)));
 }
