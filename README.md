@@ -1,4 +1,4 @@
-# game-of-life
-Prototyp maturitní práce - Hra Života (Game of Life)
-____________________________________________________
-Poznámka: Pro spuštění aplikace je potřeba do naklonovaného repozitáře nainstalovat Electron framework - viz https://www.electronjs.org/docs/tutorial/first-app#installing-electron
+# Conway's Game of Life 👾
+Prototype of a desktop application that was developed as part of my graduation thesis in 2021 using the Electron framework
+
+Based on tutorial from [The Coding Train](https://www.youtube.com/watch?v=FWSR_7kZuYg&ab_channel=TheCodingTrain)
